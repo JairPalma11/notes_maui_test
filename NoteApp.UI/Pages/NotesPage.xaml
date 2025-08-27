@@ -25,6 +25,7 @@
                                     <SwipeItems>
                                         <SwipeItem Text="Delete"
                                                    Command="{Binding Path=DeleteCommand, Source={RelativeSource AncestorType={x:Type vm:NotesViewModel}}}"
+                                                   CommandParameter="{Binding .}"
                                                    IsDestructive="True"/>
                                     </SwipeItems>
                                 </SwipeView.RightItems>
