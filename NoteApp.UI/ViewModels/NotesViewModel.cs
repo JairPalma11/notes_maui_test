@@ -25,7 +25,9 @@ public partial class NotesViewModel : BaseViewModel
     [RelayCommand]
     private async Task Delete(NoteViewModel note)
     {
-        await NoteRepository.DeleteAsync(note.GetModel());
+        var model = note.GetModel();
+        await NoteRepository.DeleteAsync(model);
+        Notes.Remove(note);
     }
     
     protected override async Task Refresh()
