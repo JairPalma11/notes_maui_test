@@ -6,10 +6,26 @@
              x:DataType="vm:NoteDetailViewModel"
              Title="{Binding PageTitle}"
              x:Class="NoteApp.UI.Pages.NoteDetailPage">
-    <VerticalStackLayout
+    <Grid
+        ColumnDefinitions="*"
+        RowDefinitions="Auto, Auto, *"
+        RowSpacing="12"
         Margin="16">
-        <Entry Text="{Binding Title}" />
-        <Editor Text="{Binding Description}" />
-        <Button Text="Save" Command="{Binding SaveCommand}"/>
-    </VerticalStackLayout>
+        <Entry 
+            Grid.Column="0"
+            Grid.Row="0"
+            Placeholder="Title"
+            Text="{Binding Title}" />
+        <Editor 
+            Grid.Column="0"
+            Grid.Row="1"
+            Placeholder="Type your notes here."
+            Text="{Binding Description}" />
+        <Button 
+            Grid.Column="0"
+            Grid.Row="2"
+            VerticalOptions="End"
+            Text="Save"
+            Command="{Binding SaveCommand}"/>
+    </Grid>
 </ContentPage>

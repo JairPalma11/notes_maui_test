@@ -21,15 +21,16 @@
                         x:DataType="vm:NoteViewModel">
                         <ContentView>
                             <SwipeView>
-                                <SwipeView.LeftItems>
+                                <SwipeView.RightItems>
                                     <SwipeItems>
                                         <SwipeItem Text="Delete"
                                                    Command="{Binding Path=DeleteCommand, Source={RelativeSource AncestorType={x:Type vm:NotesViewModel}}}"
                                                    IsDestructive="True"/>
                                     </SwipeItems>
-                                </SwipeView.LeftItems>
+                                </SwipeView.RightItems>
                                 <!-- Content -->
-                                <VerticalStackLayout>
+                                <VerticalStackLayout
+                                    Margin="12">
                                     <Label 
                                         FontSize="14"
                                         Text="{Binding Title}" />

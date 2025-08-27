@@ -24,7 +24,8 @@ public sealed partial class NoteDetailViewModel : BaseViewModel
         var note = new Note
         {
             Title = Title,
-            Description = Description
+            Description = Description,
+            CreatedAt = DateTime.Now
         };
         
         var isSuceed = await NoteRepository.SaveAsync(note);
