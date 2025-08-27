@@ -3,12 +3,12 @@
     x:Class="NoteApp.UI.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:NoteApp.UI"
+    xmlns:local="clr-namespace:NoteApp.UI.Pages"
     Title="NoteApp.UI">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate local:NotesPage}"
         Route="MainPage" />
 
 </Shell>
