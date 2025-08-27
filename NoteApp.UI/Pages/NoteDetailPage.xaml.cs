@@ -9,9 +9,9 @@ namespace NoteApp.UI.Pages;
 
 public partial class NoteDetailPage : ContentPage
 {
-    public NoteDetailPage(NoteViewModel noteViewModel)
+    public NoteDetailPage(NoteDetailViewModel noteDetailViewModel)
     {
         InitializeComponent();
-        BindingContext = noteViewModel;
+        BindingContext = noteDetailViewModel;
     }
 }

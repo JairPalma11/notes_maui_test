@@ -2,8 +2,46 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:NoteApp.UI.ViewModels"
+             xmlns:models="clr-namespace:NoteApp.UI.Models"
+             x:DataType="vm:NotesViewModel"
+             Title="{Binding PageTitle}"
              x:Class="NoteApp.UI.Pages.NotesPage">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddCommand}" />
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <RefreshView 
+            Command="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView
+                ItemsSource="{Binding Notes}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate
+                        x:DataType="vm:NoteViewModel">
+                        <ContentView>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem Text="Delete"
+                                                   Command="{Binding Path=DeleteCommand, Source={RelativeSource AncestorType={x:Type vm:NotesViewModel}}}"
+                                                   IsDestructive="True"/>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <!-- Content -->
+                                <VerticalStackLayout>
+                                    <Label 
+                                        FontSize="14"
+                                        Text="{Binding Title}" />
+                                    <Label 
+                                        FontSize="12"
+                                        Text="{Binding Date}" />
+                                </VerticalStackLayout>
+                            </SwipeView>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
 </ContentPage>

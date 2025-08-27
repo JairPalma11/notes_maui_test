@@ -9,9 +9,16 @@ namespace NoteApp.UI.Pages;
 
 public partial class NotesPage : ContentPage
 {
+    private NotesViewModel _notesViewModel;
     public NotesPage(NotesViewModel notesViewModel)
     {
         InitializeComponent();
-        BindingContext = notesViewModel;
+        BindingContext = _notesViewModel = notesViewModel;
+    }
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+        _notesViewModel.RefreshCommand.Execute(null);
     }
 }
