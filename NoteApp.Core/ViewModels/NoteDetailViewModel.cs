@@ -5,7 +5,7 @@ using NoteApp.Core.Models;
 
 namespace NoteApp.Core.ViewModels;
 
-public sealed partial class NoteDetailViewModel : BaseViewModel
+public partial class NoteDetailViewModel : BaseViewModel
 {
     [ObservableProperty]
     private string? _title;
@@ -13,6 +13,8 @@ public sealed partial class NoteDetailViewModel : BaseViewModel
     [ObservableProperty]
     private string? _description;
     
+    public bool IsSaved { get; private set; }
+
     public NoteDetailViewModel(INoteRepository  repository, INavigationService navigationService):base(repository, navigationService)
     {
         PageTitle = "Note Details";
@@ -28,8 +30,8 @@ public sealed partial class NoteDetailViewModel : BaseViewModel
             CreatedAt = DateTime.Now
         };
         
-        var isSuceed = await NoteRepository.SaveAsync(note);
-        if (isSuceed)
+        IsSaved = await NoteRepository.SaveAsync(note);
+        if (IsSaved)
         {
             await NavigationService.GoBackAsync();
         }

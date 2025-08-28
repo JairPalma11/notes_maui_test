@@ -2,6 +2,7 @@ using Moq;
 using Ninject.Modules;
 using NoteApp.Core.Abstractions;
 using NoteApp.Core.Models;
+using NoteApp.Core.Services;
 using NoteApp.Core.ViewModels;
 using NoteApp.NUnitTest.Services;
 
@@ -27,18 +28,23 @@ public sealed class MyNinjectBindings : NinjectModule
         var noteRepository = new Mock<INoteRepository>();
         var navigationService = new Mock<INavigationService>();
         var notesViewModel = new  NotesViewModel(noteRepository.Object, navigationService.Object);
-        
+        var noteDetailViewModel = new  NoteDetailViewModel(noteRepository.Object, navigationService.Object);
+
         //Save
         //valid
-        noteRepository.Setup(n => n.SaveAsync(NoteRepositoryTests.ValidNote)).ReturnsAsync(() => true);
+        noteRepository.Setup(n => n.SaveAsync(It.IsAny<Note>())).ReturnsAsync(() => true);//valid for any object
+        //noteRepository.Setup(n => n.SaveAsync(It.Is<Note>((n) => n.Id == 1))).ReturnsAsync(() => true);
+        
         //invalid
-        noteRepository.Setup(n => n.SaveAsync(NoteRepositoryTests.InvalidValidNote)).ReturnsAsync(() => false);
+        noteRepository.Setup(n => n.SaveAsync(It.Is<Note>((n) => n.Id == 2))).ReturnsAsync(() => false);
         //null case
         noteRepository.Setup(n => n.SaveAsync(null!)).ReturnsAsync(() => false);
         
         //Delete
-        noteRepository.Setup(n => n.DeleteAsync(NoteRepositoryTests.ValidNote)).ReturnsAsync(() => true);
-        noteRepository.Setup(n => n.DeleteAsync(NoteRepositoryTests.InvalidValidNote)).ReturnsAsync(() => false);
+        //valid delete
+        noteRepository.Setup(n => n.DeleteAsync(It.Is<Note>((n) => n.Id == 1))).ReturnsAsync(() => true);
+        //invalid delete
+        noteRepository.Setup(n => n.DeleteAsync(It.Is<Note>((n) => n.Id == 2))).ReturnsAsync(() => false);
         noteRepository.Setup(n => n.DeleteAsync(null!)).ReturnsAsync(() => false);
         
         //Get Notes
@@ -49,10 +55,10 @@ public sealed class MyNinjectBindings : NinjectModule
                           new Note { Id = 2, Title = "Note 2", Description = "Description 2" }
                       });
         
-        
         //setup services
         Bind<INoteRepository>().ToConstant(noteRepository.Object);
         Bind<INavigationService>().ToConstant(navigationService.Object);
         Bind<NotesViewModel>().ToConstant(notesViewModel);
+        Bind<NoteDetailViewModel>().ToConstant(noteDetailViewModel);
     }
 }

@@ -3,7 +3,7 @@ using NoteApp.Core.ViewModels;
 
 namespace NoteApp.NUnitTest.ViewModels;
 
-[TestFixture(Description = "Note Details ViewModel Tests")]
+[TestFixture(Description = "Notes ViewModel Tests")]
 public class NotesViewModelTests : BaseTests
 {
     [Test]
