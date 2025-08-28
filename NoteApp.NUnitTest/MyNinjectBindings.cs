@@ -2,6 +2,7 @@ using Moq;
 using Ninject.Modules;
 using NoteApp.Core.Abstractions;
 using NoteApp.Core.Models;
+using NoteApp.Core.ViewModels;
 using NoteApp.NUnitTest.Services;
 
 namespace NoteApp.NUnitTest;
@@ -24,6 +25,8 @@ public sealed class MyNinjectBindings : NinjectModule
         //by default MockBehavior.Loose, strict force you to mock all methods
         //of your interface
         var noteRepository = new Mock<INoteRepository>();
+        var navigationService = new Mock<INavigationService>();
+        var notesViewModel = new  NotesViewModel(noteRepository.Object, navigationService.Object);
         
         //Save
         //valid
@@ -49,5 +52,7 @@ public sealed class MyNinjectBindings : NinjectModule
         
         //setup services
         Bind<INoteRepository>().ToConstant(noteRepository.Object);
+        Bind<INavigationService>().ToConstant(navigationService.Object);
+        Bind<NotesViewModel>().ToConstant(notesViewModel);
     }
 }
