@@ -2,8 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:NoteApp.UI.ViewModels"
-             xmlns:models="clr-namespace:NoteApp.UI.Models"
+             xmlns:vm="clr-namespace:NoteApp.Core.ViewModels;assembly=NoteApp.Core"
              x:DataType="vm:NotesViewModel"
              Title="{Binding PageTitle}"
              x:Class="NoteApp.UI.Pages.NotesPage">
@@ -43,6 +42,18 @@
                         </ContentView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Grid
+                        RowDefinitions="*"
+                        ColumnDefinitions="*">
+                        <Label 
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="No Notes, to start click on Add" />
+                    </Grid>
+                </CollectionView.EmptyView>
             </CollectionView>
         </RefreshView>
     </Grid>

@@ -1,8 +1,8 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using NoteApp.UI.Abstractions;
+using NoteApp.Core.Abstractions;
 
-namespace NoteApp.UI.ViewModels;
+namespace NoteApp.Core.ViewModels;
 
 public abstract partial class BaseViewModel : ObservableObject
 {

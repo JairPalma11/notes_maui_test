@@ -1,9 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
-using NoteApp.UI.Abstractions;
+using NoteApp.Core.Abstractions;
 using NoteApp.UI.Pages;
 using NoteApp.UI.Services;
-using NoteApp.UI.ViewModels;
+using NoteApp.Core.ViewModels;
 using CommunityToolkit.Maui;
+using NoteApp.Core.Services;
 
 namespace NoteApp.UI;
 

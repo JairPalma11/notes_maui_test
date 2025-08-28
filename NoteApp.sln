@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteApp.UI", "NoteApp.UI\NoteApp.UI.csproj", "{E297E9FD-2C39-473D-8666-D930312A746F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteApp.NUnitTest", "NoteApp.NUnitTest\NoteApp.NUnitTest.csproj", "{1B6CCCA9-6465-47A7-92B6-AEA3D8532CB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteApp.Core", "NoteApp.Core\NoteApp.Core.csproj", "{0383D76E-7710-4C53-BBB5-41E39B482E19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{E297E9FD-2C39-473D-8666-D930312A746F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E297E9FD-2C39-473D-8666-D930312A746F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E297E9FD-2C39-473D-8666-D930312A746F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B6CCCA9-6465-47A7-92B6-AEA3D8532CB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B6CCCA9-6465-47A7-92B6-AEA3D8532CB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B6CCCA9-6465-47A7-92B6-AEA3D8532CB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B6CCCA9-6465-47A7-92B6-AEA3D8532CB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0383D76E-7710-4C53-BBB5-41E39B482E19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0383D76E-7710-4C53-BBB5-41E39B482E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0383D76E-7710-4C53-BBB5-41E39B482E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0383D76E-7710-4C53-BBB5-41E39B482E19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-using NoteApp.UI.Abstractions;
+using NoteApp.Core.Abstractions;
 
 namespace NoteApp.UI.Services;
 

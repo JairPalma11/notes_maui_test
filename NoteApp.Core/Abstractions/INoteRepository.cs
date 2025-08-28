@@ -1,6 +1,5 @@
-using NoteApp.UI.Models;
-
-namespace NoteApp.UI.Abstractions;
+using NoteApp.Core.Models;
+namespace NoteApp.Core.Abstractions;
 
 public interface INoteRepository
 {

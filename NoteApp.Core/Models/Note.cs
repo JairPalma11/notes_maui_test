@@ -1,4 +1,4 @@
-namespace NoteApp.UI.Models;
+namespace NoteApp.Core.Models;
 
 public sealed class Note
 {

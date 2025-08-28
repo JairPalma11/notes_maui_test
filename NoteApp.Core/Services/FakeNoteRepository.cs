@@ -1,7 +1,7 @@
-using NoteApp.UI.Abstractions;
-using NoteApp.UI.Models;
+using NoteApp.Core.Abstractions;
+using NoteApp.Core.Models;
 
-namespace NoteApp.UI.Services;
+namespace NoteApp.Core.Services;
 
 public sealed class FakeNoteRepository : INoteRepository
 {

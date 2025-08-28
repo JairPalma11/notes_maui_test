@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NoteApp.UI.ViewModels;
+using NoteApp.Core.ViewModels;
 
 namespace NoteApp.UI.Pages;
 

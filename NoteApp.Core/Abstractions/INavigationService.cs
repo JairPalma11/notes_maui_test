@@ -1,4 +1,4 @@
-namespace NoteApp.UI.Abstractions;
+namespace NoteApp.Core.Abstractions;
 
 public interface INavigationService
 {

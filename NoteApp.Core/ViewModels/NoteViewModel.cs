@@ -1,7 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
-using NoteApp.UI.Models;
+using NoteApp.Core.Models;
 
-namespace NoteApp.UI.ViewModels;
+namespace NoteApp.Core.ViewModels;
 
 public sealed partial class NoteViewModel : ObservableObject
 {
