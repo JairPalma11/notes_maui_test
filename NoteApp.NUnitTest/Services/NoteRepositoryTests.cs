@@ -8,7 +8,7 @@ namespace NoteApp.NUnitTest.Services;
 public class NoteRepositoryTests : BaseTests
 {
     [Test, Description("Add a valid note using the repository")]
-    public async Task Add_Note_ShouldBe_True()
+    public async Task Add_Valid_Note_ShouldBe_True()
     {
         //1. Arrange
         var noteRepository = Kernel?.Get<INoteRepository>();
