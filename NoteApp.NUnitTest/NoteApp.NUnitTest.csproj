@@ -24,11 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Services\" />
-      <Folder Include="ViewModels\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\NoteApp.Core\NoteApp.Core.csproj" />
     </ItemGroup>
 
