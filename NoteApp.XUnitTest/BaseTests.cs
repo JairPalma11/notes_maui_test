@@ -1,13 +1,12 @@
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using Ninject;
 
-namespace NoteApp.NUnitTest;
-
+namespace NoteApp.XUnitTest;
 /// <summary>
-/// https://www.nuget.org/packages/Ninject
-/// https://docs.nunit.org/articles/nunit/writing-tests/attributes.html
+/// https://xunit.net/?tabs=cs
 /// </summary>
-public class BaseTests
+public abstract class BaseTests : IDisposable
 {
     protected IKernel? Kernel { get; private set; }
 
@@ -15,8 +14,7 @@ public class BaseTests
     /// Runs before each test
     /// Identifies a method to be called immediately before each test is run.
     /// </summary>
-    [SetUp]
-    public void Setup()
+    protected BaseTests()
     {
         //prepare mock and interfaces to be used
         //for scenarios later
@@ -35,8 +33,7 @@ public class BaseTests
     /// Identifies a method to be called immediately after each test is run.
     /// The method is guaranteed to be called, even if an exception is thrown.
     /// </summary>
-    [TearDown]
-    public void Cleanup()
+    public void Dispose()
     {
         Kernel?.Dispose();
         Kernel = null;
