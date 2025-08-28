@@ -7,10 +7,13 @@ namespace NoteApp.NUnitTest.Services;
 [TestFixture(Description = "Note Repository Tests")]
 public class NoteRepositoryTests : BaseTests
 {
-    public static Note ValidNote = new Note { Id = 1, CreatedAt = DateTime.Now };
-    public static Note InvalidValidNote = new Note { Id = 2, CreatedAt = DateTime.Now };
+    /// <summary>
+    /// Examples of specific results.
+    /// </summary>
+    public static readonly Note ValidNote = new Note { Id = 1, CreatedAt = DateTime.Now };
+    public static readonly Note InvalidValidNote = new Note { Id = 2, CreatedAt = DateTime.Now };
     
-    [Test, Description("Add a note using the repository")]
+    [Test, Description("Add a valid note using the repository")]
     public async Task Add_Note_ShouldBe_True()
     {
         //1. Arrange
@@ -21,6 +24,19 @@ public class NoteRepositoryTests : BaseTests
         
         //3. Assert
         Assert.That(result, Is.True);
+    }
+    
+    [Test, Description("Add a null note using the repository")]
+    public async Task Add_Null_Note_ShouldBe_False()
+    {
+        //1. Arrange
+        var noteRepository = Kernel?.Get<INoteRepository>();
+        
+        //2. Act
+        var result = await noteRepository!.SaveAsync(null!);
+        
+        //3. Assert
+        Assert.That(result, Is.False);
     }
     
     [Test(ExpectedResult = false),Description("Add an invalid note using the repository")]
