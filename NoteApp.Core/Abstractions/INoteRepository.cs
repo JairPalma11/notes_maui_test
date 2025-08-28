@@ -6,4 +6,5 @@ public interface INoteRepository
     Task<bool> SaveAsync(Note note);
     Task<bool> DeleteAsync(Note note);
     Task<IReadOnlyList<Note>> GetNotesAsync();
+    Task<bool> SaveAsync(string title, int numberOfNotes);
 }

@@ -24,6 +24,11 @@ public sealed class FakeNoteRepository : INoteRepository
         return await Task.FromResult(Notes);
     }
 
+    public async Task<bool> SaveAsync(string title, int numberOfNotes)
+    {
+        return await Task.FromResult(true);
+    }
+
     public static void Initialize()
     {
         for (var i = 0; i < 10; i++)

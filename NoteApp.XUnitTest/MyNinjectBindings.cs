@@ -30,6 +30,8 @@ public sealed class MyNinjectBindings : NinjectModule
         var noteDetailViewModel = new  NoteDetailViewModel(noteRepository.Object, navigationService.Object);
 
         //Save
+        noteRepository.Setup(n => n.SaveAsync("Test Title", 1)).ReturnsAsync(() => true);//valid for any object
+
         //valid
         noteRepository.Setup(n => n.SaveAsync(It.IsAny<Note>())).ReturnsAsync(() => true);//valid for any object
         //noteRepository.Setup(n => n.SaveAsync(It.Is<Note>((n) => n.Id == 1))).ReturnsAsync(() => true);

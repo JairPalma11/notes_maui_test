@@ -55,4 +55,19 @@ public class NoteRepositoryTests : BaseTests
         //3. Assert
         Assert.False(result);
     }
+    
+    [Theory]
+    [InlineData("Test Title",  1)]
+    //[InlineData("",  -1)]
+    public async Task Add_Note_With_Valid_Title_And_NumberOfNotes_ShouldBeTrue(string title, int numberOfNotes)
+    {
+        //1. Arrange
+        var noteRepository = Kernel?.Get<INoteRepository>();
+        
+        //2. Act
+        var result = await noteRepository?.SaveAsync(title, numberOfNotes);
+        
+        //3. Assert
+        Assert.True(result);
+    }
 }
